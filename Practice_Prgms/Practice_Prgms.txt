@@ -1,0 +1,869 @@
+//Practice problems
+
+
+//Write C# program to copy all elements of one array to another
+
+using System;
+class Program
+{
+    static void Main()
+    {
+        int[] arr = new int[100];
+ 
+        int[] first = new int[100];
+        int[] second = new int[100];
+ 
+        int i, num;
+ 
+        
+        Console.WriteLine("Enter size of the array: ");
+        num = Convert.ToInt32(Console.ReadLine());
+       
+        Console.WriteLine("Enter elements in the array: ");
+        for (i = 0; i < num; i++)
+        {
+            first[i] = Convert.ToInt32(Console.ReadLine());            
+        }
+ 
+      
+        for (i = 0; i < num; i++)
+        {
+            second[i] = first[i];
+        }
+ 
+        
+        Console.WriteLine("Elements of first array are:");
+        for (i = 0; i < num; i++)
+        {
+            Console.Write(first[i]+"\t");            
+        }
+ 
+        
+        Console.WriteLine("\nElements of second array are:");        
+        for (i = 0; i < num; i++)
+        {
+           Console.Write(second[i]+ "\t");
+        }
+ 
+ 
+        Console.ReadLine();
+    }
+ 
+}
+
+//Write C# program to delete all duplicate elements from an array
+
+using System;
+class Program
+{
+    static void Main()
+    {       
+        int[] arr = new int[100];
+        int num; 
+        int i, j, k;
+ 
+        
+        Console.WriteLine("Enter size of the array: ");
+        num = Convert.ToInt32(Console.ReadLine());
+ 
+        
+        Console.WriteLine("Enter elements in the array: ");
+        for (i = 0; i < num; i++)
+        {
+            arr[i] = Convert.ToInt32(Console.ReadLine());           
+        }
+ 
+        for (i = 0; i < num; i++)
+        {
+            for (j = i + 1; j < num; j++)
+            {
+                
+                if (arr[i] == arr[j])
+                {
+                    
+                    for (k = j; k < num; k++)
+                    {
+                        arr[k] = arr[k + 1];
+                    }
+ 
+                    
+                    num--;
+ 
+                    
+                    j--;
+                }
+            }
+        }
+ 
+        
+        Console.WriteLine("\nArray elements after deleting duplicates : ");
+        for (i = 0; i < num; i++)
+        {
+            Console.WriteLine(arr[i]);
+        }        
+ 
+        Console.ReadLine();
+    }
+ 
+}
+
+
+//Write a C# program to Print Binary Equivalent of an Integer using Recursion
+
+using System;
+ 
+class Program
+{
+    public static void Main(string[] args)
+    {
+        int num;
+        program p = new program();
+        Console.WriteLine("Enter a decimal number: ");
+        num = int.Parse(Console.ReadLine());
+        Console.Write("The binary equivalent of num is :");
+        p.binaryconversion(num);
+        Console.ReadLine();
+    }
+}
+public class program
+{
+    public int binaryconversion(int num)
+    {
+        int bin;
+        if (num != 0)
+        {
+            bin = (num % 2) + 10 * binaryconversion(num / 2);
+            Console.Write(bin);
+            return 0;
+        }
+        else
+        {
+            return 0;
+        }
+ 
+    }
+}
+
+
+//Write a C# program to find the number of times a substring appears in the given string
+
+using System;
+public class stringexercise
+{
+    public static void Main()
+    {
+        string str;
+        string findstring;
+        int start = 0;
+        int cnt = -1;
+        int index = -1;
+ 
+        Console.Write("Input the original string : ");
+        str = Console.ReadLine();
+        Console.Write("Input the string to be searched for : ");
+        findstring = Console.ReadLine();
+ 
+        while (start != -1)
+        {
+            start = str.IndexOf(findstring, index + 1);
+            cnt += 1;
+            index = start;
+        }
+        Console.Write("The string '{0}' occurs " + cnt + " times.\n", findstring);
+ 
+        Console.ReadLine();
+    }
+}
+
+
+//Write a C# program to check whether a given substring is present in the given string
+
+
+using System;
+public class Stringexercise
+{
+    public static void Main()
+    {
+        string str1, str2;
+        bool m;
+ 
+        Console.Write("Enter the string : ");
+        str1 = Console.ReadLine();
+ 
+        Console.Write("Input the substring to  search : ");
+        str2 = Console.ReadLine();
+        m = str1.Contains(str2); 
+        if (m) 
+            Console.WriteLine("The substring exists in the string.");
+        else
+            Console.WriteLine("The substring is not exists in the string.");
+ 
+        Console.ReadLine();
+    }
+}
+
+//Program to Find LCM of Two Numbers
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+namespace ConsoleApplication9
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            int num1, num2, x, y, lcm = 0;
+            Console.Write("Enter the First Number : ");
+            num1 = int.Parse(Console.ReadLine());
+            Console.Write("Enter the Second Number : ");
+            num2 = int.Parse(Console.ReadLine());
+            x = num1;
+            y = num2;
+            while (num1 != num2)
+            {
+                if (num1 > num2)
+                {
+                    num1 = num1 - num2;
+                }
+                else
+                {
+                    num2 = num2 - num1;
+                }
+            }
+            lcm = (x * y) / num1;
+            Console.Write("Least Common Multiple is : " + lcm);
+            Console.Read();
+        }
+    }
+}
+
+//Program to Demonstrate the Overriding
+
+using System;
+abstract class ShapesClass
+{
+    abstract public double Area();
+}
+class Circle : ShapesClass
+{
+    int radius = 0;
+    public Circle(int n)
+    {
+        radius = n;
+    }
+    public override double Area()
+    {
+        return 3.14 * radius * radius;
+    }
+    static void Main()
+    {
+        int r;
+        Console.WriteLine("Enter the Radius :");
+        r = int.Parse(Console.ReadLine());
+        Circle c1 = new Circle(r);
+        Console.WriteLine("Area of the Circle = {0}", c1.Area());
+        Console.ReadLine();
+    }
+}
+
+//Program to Demonstrate Single Inheritance
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+namespace Inheritance
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Teacher d = new Teacher();
+            d.Teach();
+            Student s = new Student();
+            s.Learn();
+            s.Teach();
+            Console.ReadKey();
+        }
+        class Teacher
+        {
+            public void Teach()
+            {
+                Console.WriteLine("Teach");
+            }
+        }
+        class Student : Teacher
+        {
+            public void Learn()
+            {
+                Console.WriteLine("Learn");
+            }
+        }
+    }
+}
+
+
+//Program to Implement Delegates
+
+
+
+using System;
+using System.IO;
+delegate void delegatewriter(string message);
+class delgwriter
+{
+    StreamWriter w;
+    public delgwriter(string path)
+    {
+        w = File.CreateText(path);
+    }
+    public void display(string msg)
+    {
+        w.WriteLine(msg);
+    }
+    public void Flush()
+    {
+        w.Flush();
+    }
+    public void Close()
+    {
+        w.Close();
+    }
+}
+class Test
+{
+    static delegatewriter delgwri;
+    static void display(string s)
+    {
+        Console.WriteLine(s);
+    }
+    static void Main(string[] arg)
+    {
+        delgwriter x = new delgwriter("log.txt");
+        delgwri += new delegatewriter(display);
+        delgwri += new delegatewriter(x.display);
+        delgwri("C");
+        delgwri("C++");
+        delgwri("Java");
+        x.Flush();
+        x.Close();
+        Console.Read();
+    }
+}
+
+
+//Program to Traverse the Singly Linked List
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+namespace Program
+{
+    class singlelist
+    {
+        private int data;
+        private singlelist next;
+        public singlelist()
+        {
+            data = 0;
+            next = null;
+        }
+        public singlelist(int value)
+        {
+            data = value;
+            next = null;
+        }
+        public singlelist InsertNext(int value)
+        {
+ 
+            singlelist node = new singlelist(value);
+            if (this.next == null)
+            {
+                node.next = null; 
+                this.next = node;
+            }
+           else
+            {
+                singlelist temp = this.next;
+                node.next = temp;
+                this.next = node;
+            }
+            return node;
+        }
+        public int DeleteNext()
+        {
+            if (next == null)
+                return 0;
+            singlelist node = this.next;
+            this.next = this.next.next;  
+            node = null;
+            return 1;
+        }
+        public void Traverse(singlelist node)
+        {
+            if (node == null)
+                node = this;
+            System.Console.WriteLine("Traversing :");
+            while (node != null)
+            {
+                System.Console.WriteLine(node.data);
+                node = node.next;
+            }
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            singlelist node1 = new singlelist(11);
+            singlelist node2 = node1.InsertNext(12);
+            singlelist node3 = node2.InsertNext(13);
+            singlelist node4 = node3.InsertNext(14);
+            singlelist node5 = node4.InsertNext(15);
+            node1.Traverse(null);
+            Console.WriteLine("Deleting !!");
+            node3.DeleteNext();
+            node2.Traverse(null);
+            System.Console.ReadLine();
+        }
+    }
+}
+
+
+//Program to Multiply Two Matrices
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+ 
+namespace matrix_multiplication
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int i, j,m,n;
+            Console.WriteLine("Enter the Number of Rows and Columns : ");
+            m = Convert.ToInt32(Console.ReadLine());
+            n = Convert.ToInt32(Console.ReadLine());
+            int[,] a = new int[m, n];
+            Console.WriteLine("Enter the First Matrix");
+            for (i = 0; i < m; i++)
+            {
+                for (j = 0; j < n; j++)
+                {
+                    a[i, j] = int.Parse(Console.ReadLine());
+                }
+            }
+            Console.WriteLine("First matrix is:");
+            for (i = 0; i < m; i++)
+            {
+                for (j = 0; j < n; j++)
+                {
+                    Console.Write(a[i, j] + "\t");
+                }
+                Console.WriteLine();
+            }
+            int[,] b = new int[m, n];
+            Console.WriteLine("Enter the Second Matrix");
+            for (i = 0; i < m; i++)
+            {
+                for (j = 0; j < n; j++)
+                {
+                    b[i, j] = int.Parse(Console.ReadLine());
+                }
+            }
+            Console.WriteLine("Second Matrix is :");
+            for (i = 0; i < 2; i++)
+            {
+                for (j = 0; j < 2; j++)
+                {
+                    Console.Write(b[i, j] + "\t");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine("Matrix Multiplication is :");
+            int[,] c = new int[m, n];
+            for (i = 0; i < m; i++)
+            {
+                for (j = 0; j < n; j++)
+                {
+                    c[i, j] = 0;
+                    for (int k = 0; k < 2; k++)
+                    {
+                        c[i, j] += a[i, k] * b[k, j];
+                    }
+                }
+            }
+            for (i = 0; i < m; i++)
+            {
+                for (j = 0; j < n; j++)
+                {
+                    Console.Write(c[i, j] + "\t");
+                }
+                Console.WriteLine();
+            }
+ 
+            Console.ReadKey();
+        }
+    }
+}
+
+
+//Program to Implement Quick sort
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+ 
+namespace sortQuick
+{
+    class quickSort
+    {
+ 
+        private int[] array = new int[20];
+        private int len;
+ 
+        public void QuickSort()
+        {
+            sort(0, len - 1);
+        }
+ 
+        public void sort(int left, int right)
+        {
+            int pivot, leftend, rightend;
+ 
+            leftend = left;
+            rightend = right;
+            pivot = array[left];
+ 
+            while (left < right)
+            {
+                while ((array[right] >= pivot) && (left < right))
+                {
+                    right--;
+                }
+ 
+                if (left != right)
+                {
+                    array[left] = array[right];
+                    left++;
+                }
+ 
+                while ((array[left] <= pivot) && (left < right))
+                {
+                    left++;
+                }
+ 
+                if (left != right)
+                {
+                    array[right] = array[left];
+                    right--;
+                }
+            }
+ 
+            array[left] = pivot;
+            pivot = left;
+            left = leftend;
+            right = rightend;
+ 
+            if (left < pivot)
+            {
+                sort(left, pivot - 1);
+            }
+ 
+            if (right > pivot)
+            {
+                sort(pivot + 1, right);
+            }
+        }
+ 
+        public static void Main()
+        {
+            quickSort q_Sort = new quickSort();
+ 
+            int[] array = { 4, 3, 1, 4, 6, 7, 5, 4, 32, 5, 26, 187, 8 };
+            q_Sort.array = array;
+            q_Sort.len = q_Sort.array.Length;
+            q_Sort.QuickSort();
+ 
+            for (int j = 0; j < q_Sort.len; j++)
+            {
+                Console.WriteLine(q_Sort.array[j]);
+            }
+            Console.ReadKey();
+        }
+    }
+}
+
+//Program to Implement Namespaces
+
+using System;
+namespace Sanfoundry.Csharp.Codes
+{
+    class TestClass
+    {
+        public TestClass()
+        {
+            Console.WriteLine("Class to Demonstrate Namespace");
+        }
+    }
+}
+class MyClient
+{
+    public static void Main()
+    {
+      Sanfoundry.Csharp.Codes.TestClass mc = new Sanfoundry.Csharp.Codes.TestClass();
+      Console.ReadLine();
+    }
+}
+
+
+
+// Program to Convert Infix to Postfix
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+namespace Infix
+{
+    class Program
+    {
+        static bool convert(ref string infix, out string postfix)
+        {
+ 
+            int prio = 0;
+            postfix = "";
+            Stack<Char> s1 = new Stack<char>();
+            for (int i = 0; i < infix.Length; i++)
+            {
+                 char ch = infix[i];
+                 if (ch == '+' || ch == '-' || ch == '*' || ch == '/')
+                 {
+                     if (s1.Count <= 0)
+                         s1.Push(ch);
+                    else
+                    {
+                        if (s1.Peek() == '*' || s1.Peek() == '/')
+                            prio = 1;
+                        else
+                            prio = 0;
+                        if (prio == 1)
+                        {
+                            if (ch == '+' || ch == '-')
+                            {
+                               postfix += s1.Pop();
+                               i--;
+                            }
+                            else
+                            { 
+                                postfix += s1.Pop();
+                                i--;
+                            }
+                        }
+                        else
+                        {
+                            if (ch == '+' || ch == '-')
+                            {
+                               postfix += s1.Pop();
+                               s1.Push(ch);
+ 
+                            }
+                            else
+                                s1.Push(ch);
+                        }
+                    }
+                }
+                else
+                {
+                    postfix += ch;
+                }
+            }
+            int len = s1.Count;
+            for (int j = 0; j < len; j++)
+                postfix += s1.Pop();
+            return true;
+        }
+        static void Main(string[] args)
+        {
+            string infix = "";
+            string postfix = "";
+            if (args.Length == 1)
+            {
+                infix = args[0];
+                convert(ref infix, out postfix);
+                System.Console.WriteLine("InFix  :\t" + infix);
+                System.Console.WriteLine("PostFix:\t" + postfix);
+            }
+            else
+            {
+                infix = "a+b*c-d";
+                convert(ref infix, out postfix);
+                System.Console.WriteLine("InFix   :\t" + infix);
+                System.Console.WriteLine("PostFix :\t" + postfix);
+                System.Console.WriteLine();
+                infix = "a+b*c-d/e*f";
+                convert(ref infix, out postfix);
+                System.Console.WriteLine("InFix   :\t" + infix);
+                System.Console.WriteLine("PostFix :\t" + postfix);
+                System.Console.WriteLine();
+                infix = "a-b/c*d-e--f/h*i++j-/k";
+                convert(ref infix, out postfix);
+                System.Console.WriteLine("InFix   :\t" + infix);
+                System.Console.WriteLine("PostFix :\t" + postfix);
+                System.Console.WriteLine();
+                Console.ReadLine();
+            }
+        }
+    }
+}
+
+
+//Program to Implement Stack with Push and Pop Operations
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {         
+            stack st = new stack();
+          while (true)
+            {
+                Console.Clear();
+                Console.WriteLine("\nStack MENU(size -- 10)");
+                Console.WriteLine("1. Add an element");
+                Console.WriteLine("2. See the Top element.");
+                Console.WriteLine("3. Remove top element.");
+                Console.WriteLine("4. Display stack elements.");
+                Console.WriteLine("5. Exit");
+                Console.Write("Select your choice: ");
+                int choice = Convert.ToInt32(Console.ReadLine());
+                switch (choice)
+                {
+                    case 1:
+                        Console.WriteLine("Enter an Element : ");
+                        st.Push(Console.ReadLine());
+                        break;
+ 
+                    case 2: Console.WriteLine("Top element is: {0}", st.Peek());
+                        break;
+ 
+                    case 3: Console.WriteLine("Element removed: {0}", st.Pop());
+                        break;
+ 
+                    case 4: st.Display();
+                        break;
+ 
+                    case 5: System.Environment.Exit(1);
+                        break;
+                }
+                Console.ReadKey();
+            }
+        }
+    }
+ 
+    interface StackADT
+    {
+        Boolean isEmpty();
+        void Push(Object element);
+        Object Pop();
+        Object Peek();
+        void Display();
+    }
+    class stack : StackADT
+    {
+        private int StackSize;
+        public int StackSizeSet
+        {
+            get { return StackSize; }
+            set { StackSize = value; }
+        }
+        public int top;
+        Object[] item;
+        public stack()
+        {
+            StackSizeSet = 10;
+            item = new Object[StackSizeSet];
+            top = -1;
+        }
+        public stack(int capacity)
+        {
+            StackSizeSet = capacity;
+            item = new Object[StackSizeSet];
+            top = -1;
+        }
+        public bool isEmpty()
+        {
+            if (top == -1) return true;
+ 
+            return false;
+        }
+        public void Push(object element)
+        {
+            if (top == (StackSize - 1))
+            {
+                Console.WriteLine("Stack is full!");
+            }
+ 
+            else
+            {
+ 
+                item[++top] = element;
+                Console.WriteLine("Item pushed successfully!");
+            }
+        }
+        public object Pop()
+        {
+            if (isEmpty())
+            {
+                Console.WriteLine("Stack is empty!");
+                return "No elements";
+            }
+            else
+            {
+ 
+                return item[top--];
+            }
+        }
+        public object Peek()
+        {
+            if (isEmpty())
+            {
+ 
+                Console.WriteLine("Stack is empty!");
+                return "No elements";
+            }
+            else
+            {
+                return item[top];
+            }
+        }
+ 
+ 
+        public void Display()
+        {
+            for (int i = top; i > -1; i--)
+            {
+ 
+                Console.WriteLine("Item {0}: {1}", (i + 1), item[i]);
+            }
+        }
+    }
+}
+
